@@ -5,15 +5,58 @@
 
 body {
     font-family: 'Spantaran', sans-serif;
-    font-size: 250%;
+    font-size: 500%;
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    background: linear-gradient(to right, #6ff1f7ff, #e55530ff);
+    background: linear-gradient(to right, #6ff1f7, #e55530);
 }
 
-body img {
+.logo {
     width: 80%;
     margin-top: 10%;
+    margin-bottom: 10%;
+}
+
+.overlay {
+    width: 80%;
+    position: absolute;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+/* Keyframes for rotation */
+@keyframes rotate {
+    from {
+        transform: rotate(0deg);
+    }
+
+    to {
+        transform: rotate(360deg);
+    }
+}
+
+/* Apply the rotation animation */
+.overlay[alt="big-gear"] {
+    transform-origin: 44.45% 34.4%;
+    animation: rotate 9s linear infinite;
+}
+
+.overlay[alt="bottom-gear"] {
+    transform-origin: 56.72% 39.07%;
+    animation: rotate 6s linear infinite reverse;
+}
+
+.overlay[alt="top-gear"] {
+    transform-origin: 53.54% 17.69%;
+    animation: rotate 6s linear infinite reverse;
+}
+
+.coming-soon {
+    z-index: 1;
+    position: relative;
+    margin-top: 50%;
+    margin-bottom: 10%;
 }
