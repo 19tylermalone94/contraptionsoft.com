@@ -51,10 +51,3 @@ body {
     transform-origin: 53.54% 17.69%;
     animation: rotate 6s linear infinite reverse;
 }
-
-.coming-soon {
-    z-index: 1;
-    position: relative;
-    margin-top: 50%;
-    margin-bottom: 10%;
-}
