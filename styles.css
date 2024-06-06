@@ -61,13 +61,13 @@ body {
     justify-content: center;
     align-items: center;
     margin-top: 40%;
-    color: #e55530;
-    text-shadow: -3px 0 black, 0 3px black, 3px 0 black, 0 -3px black;
     z-index: 10;
 
 }
 
 .navitem {
+    -webkit-text-stroke-width: 2px;
+    -webkit-text-stroke-color: black;
     font-size: 200%;
     transition: font-size 0.5s ease;
     color: #e55530;
