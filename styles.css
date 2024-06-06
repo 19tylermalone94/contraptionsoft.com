@@ -14,10 +14,12 @@ body {
 }
 
 .logo {
-    width: 75%;
+    display: flex;
+    justify-content: center;
+    width: 70%;
     margin-top: 10%;
     margin-bottom: 10%;
-    margin-right: 5%;
+    position: relative;
 }
 
 .overlay {
