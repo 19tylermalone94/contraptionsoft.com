@@ -13,7 +13,9 @@ body {
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    background: linear-gradient(to right, rgb(80, 80, 80), rgb(151, 151, 151));
+    background: url('images/bg.png') no-repeat center center fixed;
+    background-size: cover;
+    /* background: linear-gradient(to right, rgb(80, 80, 80), rgb(151, 151, 151)); */
 }
 
 h1 {
@@ -49,7 +51,7 @@ h3 {
 }
 
 .header {
-    background: linear-gradient(to right, #6ff1f7, #e55530);
+    background: linear-gradient(to right, rgb(49, 74, 83), rgb(125, 197, 223));
     border-radius: 10px;
     display: flex;
     flex-direction: column;
@@ -154,7 +156,7 @@ form {
     font-size: 1.5em;
     width: 100%;
     padding: 5%;
-    background: linear-gradient(to right, #6ff1f7, #e55530);
+    background: linear-gradient(to right, rgb(49, 74, 83), rgb(125, 197, 223));
     border-radius: 10px;
 }
 
@@ -206,7 +208,7 @@ footer {
 }
 
 .service-option {
-    background: linear-gradient(to right, #6ff1f7, #e55530);
+    background: linear-gradient(to right, rgb(49, 74, 83), rgb(125, 197, 223));
     padding: 2em;
     margin: 1em;
     border-radius: 10px;
@@ -236,8 +238,13 @@ footer {
     color: #000;
 }
 
+.about {
+    width: 80%;
+    max-width: 800px;
+}
+
 .about-item {
-    background: linear-gradient(to right, #6ff1f7, #e55530);
+    background: linear-gradient(to right, rgb(49, 74, 83), rgb(125, 197, 223));
     padding: 2em;
     margin: 1em;
     border-radius: 10px;
