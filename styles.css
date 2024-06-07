@@ -193,10 +193,8 @@ button:hover {
     justify-content: center;
     align-items: center;
     text-align: center;
-}
-
-.email {
-    word-wrap: break-word; /* Ensures the email wraps within the container */
+    width: 90%;
+    max-width: 800px;
 }
   
 footer {
