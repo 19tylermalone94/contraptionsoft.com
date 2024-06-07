@@ -13,7 +13,7 @@ body {
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    background: linear-gradient(to right, #6ff1f7, #e55530);
+    background: linear-gradient(to right, rgb(80, 80, 80), rgb(151, 151, 151));
 }
 
 h1 {
@@ -43,14 +43,14 @@ h3 {
     animation: grow 1.3s forwards; 
     -webkit-text-stroke-width: 2px;
     -webkit-text-stroke-color: black;
-    color: #696969ff;
+    color: #e55530;
     text-decoration: none;
     margin: 3%;
     transition: transform 0.5s ease;
 }
 
 .header {
-    background: linear-gradient(to left, #6ff1f7, #e55530);
+    background: linear-gradient(to right, #6ff1f7, #e55530);
     border-radius: 10px;
     display: flex;
     flex-direction: column;
@@ -155,7 +155,7 @@ form {
     font-size: 100%;
     width: 100%;
     padding: 5%;
-    background: linear-gradient(to left, #6ff1f7, #e55530);
+    background: linear-gradient(to right, #6ff1f7, #e55530);
     border-radius: 10px;
 }
 
@@ -187,6 +187,13 @@ button {
 button:hover {
     background-color:#428e92;
 }
+
+.contact-info {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
   
 footer {
     font-size: 100%;
@@ -198,7 +205,7 @@ footer {
 }
 
 .service-option {
-    background: linear-gradient(to left, #6ff1f7, #e55530);
+    background: linear-gradient(to right, #6ff1f7, #e55530);
     padding: 2em;
     margin: 1em;
     border-radius: 10px;
@@ -214,7 +221,7 @@ footer {
 .service-option h2 {
     font-size: 2em;
     margin-bottom: 0.5em;
-    color: #696969ff;
+    color: #e55530;
 }
 
 .service-option p {
@@ -229,7 +236,7 @@ footer {
 }
 
 .about-item {
-    background: linear-gradient(to left, #6ff1f7, #e55530);
+    background: linear-gradient(to right, #6ff1f7, #e55530);
     padding: 2em;
     margin: 1em;
     border-radius: 10px;
@@ -238,7 +245,7 @@ footer {
 }
 
 .about-item h1 {
-    color: #696969ff;
+    color: #e55530;
 }
 
 .about-item:hover {
