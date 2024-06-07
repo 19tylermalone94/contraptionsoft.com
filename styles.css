@@ -39,8 +39,7 @@ h2 {
 }
 
 h3 {
-    font-size: 0;
-    animation: grow 1.3s forwards; 
+    font-size: 1.5em;
     -webkit-text-stroke-width: 2px;
     -webkit-text-stroke-color: black;
     color: #e55530;
