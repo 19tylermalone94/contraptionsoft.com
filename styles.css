@@ -1,7 +1,11 @@
 @font-face {
     font-family: 'Spantaran';
-    src: url('fonts/Spantaran-GE2D.ttf') format('truetype');
+    src: url('fonts/Spantaran.ttf') format('truetype');
 }
+
+html {
+    scroll-behavior: smooth;
+  }
 
 body {
     font-family: 'Spantaran', sans-serif;
@@ -12,13 +16,51 @@ body {
     background: linear-gradient(to right, #6ff1f7, #e55530);
 }
 
-.logo {
+h1 {
+    font-size: 0;
+    animation: grow 1.3s forwards; 
+    -webkit-text-stroke-width: 2px;
+    -webkit-text-stroke-color: black;
+    color: #e55530;
+    text-decoration: none;
+    margin: 3%;
+    transition: transform 0.5s ease;
+}
+
+h2 {
+    font-size: 0;
+    animation: grow 1.3s forwards; 
+    -webkit-text-stroke-width: 2px;
+    -webkit-text-stroke-color: black;
+    color: #e55530;
+    text-decoration: none;
+    margin: 3%;
+    transition: transform 0.5s ease;
+}
+
+h3 {
+    font-size: 0;
+    animation: grow 1.3s forwards; 
+    -webkit-text-stroke-width: 2px;
+    -webkit-text-stroke-color: black;
+    color: #696969ff;
+    text-decoration: none;
+    margin: 3%;
+    transition: transform 0.5s ease;
+}
+
+.header {
+    background: linear-gradient(to left, #6ff1f7, #e55530);
+    border-radius: 10px;
     display: flex;
+    flex-direction: column;
     justify-content: center;
-    width: 70%;
+    align-items: center;
+    width: 100%;
     max-width: 800px;
     margin-top: 10%;
     margin-bottom: 10%;
+    padding: 2%;
     position: relative;
 }
 
@@ -34,7 +76,6 @@ body {
     from {
         transform: rotate(0deg);
     }
-
     to {
         transform: rotate(360deg);
     }
@@ -60,22 +101,147 @@ body {
     flex-direction: row;
     justify-content: center;
     align-items: center;
-    margin-top: 40%;
     z-index: 10;
+}
 
+.homenavbar {
+    margin-top: 40%;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    z-index: 10;
 }
 
 .navitem {
+    font-size: 0;
+    animation: grow 1.3s forwards; 
     -webkit-text-stroke-width: 2px;
     -webkit-text-stroke-color: black;
-    font-size: 200%;
-    transition: font-size 0.5s ease;
     color: #e55530;
     text-decoration: none;
-    margin: 2%;
+    margin: 3%;
+    transition: transform 0.5s ease;
 }
 
 .navitem:hover {
-    font-size: 250%;
-    transition: font-size 0.5s ease;
+    transform: scale(1.25);
+}
+
+@keyframes grow {
+    0% {
+        font-size: 0;
+    }
+    100% {
+        font-size: 200%;
+    }
+}
+
+.form-container {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    width: 50%;
+    max-width: 800px;
+    margin-bottom: 10%;
+}
+
+form {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    font-size: 100%;
+    width: 100%;
+    padding: 5%;
+    background: linear-gradient(to left, #6ff1f7, #e55530);
+    border-radius: 10px;
+}
+
+label {
+    margin-top: 1em;
+    display: block;
+}
+
+input, textarea {
+    width: 80%;
+    padding: 0.5em;
+    margin-top: 0.5em;
+    border: 1px solid #ccc;
+    border-radius: 3px;
+}
+
+button {
+    font-size: 100%;
+    font-family: 'Spantaran';
+    padding: 0.7em;
+    color: #000000;
+    background-color:#6ff1f7;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    margin-top: 1em;
+}
+
+button:hover {
+    background-color:#428e92;
+}
+  
+footer {
+    font-size: 100%;
+    margin: 5%;
+}
+
+.services {
+    text-align: center;
+}
+
+.service-option {
+    background: linear-gradient(to left, #6ff1f7, #e55530);
+    padding: 2em;
+    margin: 1em;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.service-option:hover {
+    transform: scale(1.1);
+    box-shadow: 0 20px 32px rgba(0, 0, 0, 0.2);
+}
+
+.service-option h2 {
+    font-size: 2em;
+    margin-bottom: 0.5em;
+    color: #696969ff;
+}
+
+.service-option p {
+    font-size: 1.2em;
+    margin: 0.5em 0;
+}
+
+.price {
+    font-size: 1.5em;
+    font-weight: bold;
+    color: #000;
+}
+
+.about-item {
+    background: linear-gradient(to left, #6ff1f7, #e55530);
+    padding: 2em;
+    margin: 1em;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.about-item h1 {
+    color: #696969ff;
+}
+
+.about-item:hover {
+    transform: scale(1.1);
+    box-shadow: 0 20px 32px rgba(0, 0, 0, 0.2);
 }
