@@ -18,12 +18,21 @@ export default function Home() {
   }, []);
 
   return (
-    <div className="min-h-screen bg-[#0a0a0a] text-gray-100">
+    <div className="min-h-screen bg-[#0a0a0a] text-gray-100 w-full">
       {/* Navigation */}
       <nav className="fixed top-0 w-full z-50 bg-[#0a0a0a]/95 backdrop-blur-md border-b border-gray-800 shadow-sm">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="flex justify-between items-center h-16">
-            <a href="#" className="text-xl sm:text-2xl font-bold text-orange-500">ContraptionSoft</a>
+            <a href="#" className="flex items-center gap-2 sm:gap-3">
+              <Image 
+                src="/contraptionsoft_logo.jpg" 
+                alt="ContraptionSoft Logo"
+                width={40}
+                height={40}
+                className="rounded"
+              />
+              <span className="text-xl sm:text-2xl font-bold text-orange-500 hidden sm:inline">ContraptionSoft</span>
+            </a>
             <div className="hidden md:flex gap-8">
               <a href="#home" className="text-gray-300 hover:text-orange-500 transition-colors font-medium">Home</a>
               <a href="#about" className="text-gray-300 hover:text-orange-500 transition-colors font-medium">About</a>
@@ -80,6 +89,15 @@ export default function Home() {
       <section id="home" className="pt-24 sm:pt-32 pb-16 sm:pb-24 px-4 sm:px-6 bg-gradient-to-br from-[#0a0a0a] via-[#1a1a1a] to-[#0f0f0f]">
         <div className="max-w-7xl mx-auto">
           <div className={`text-center space-y-6 sm:space-y-8 transition-opacity duration-1000 ${mounted ? 'opacity-100' : 'opacity-0'}`}>
+            <div className="flex justify-center mb-4 sm:mb-6">
+              <Image 
+                src="/contraptionsoft_logo.jpg" 
+                alt="ContraptionSoft Logo"
+                width={120}
+                height={120}
+                className="rounded-lg shadow-lg"
+              />
+            </div>
             <h1 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl xl:text-7xl font-bold text-gray-100 leading-tight px-2">
               Custom Software Solutions
               <span className="block text-orange-500 mt-2">That Drive Business Growth</span>
