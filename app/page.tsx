@@ -375,7 +375,7 @@ export default function Home() {
           <div className="bg-gradient-to-br from-[#1a1a1a] to-[#0f0f0f] rounded-2xl p-6 sm:p-8 md:p-12 border border-gray-800">
             <div className="space-y-6">
               <a
-                href="mailto:tylermalone@contraptionsoft.com"
+                href="mailto:tyler@contraptionsoft.com"
                 className="block p-5 sm:p-6 bg-[#0a0a0a] rounded-xl border border-gray-800 hover:border-orange-500/50 hover:shadow-lg hover:shadow-orange-500/10 transition-all hover:scale-[1.02] group"
               >
                 <div className="flex items-center gap-3 sm:gap-4">
@@ -385,7 +385,7 @@ export default function Home() {
                   <div className="flex-1 min-w-0">
                     <div className="text-xs sm:text-sm text-gray-500 mb-1">Email</div>
                     <div className="text-sm sm:text-base md:text-lg font-semibold text-gray-100 group-hover:text-orange-500 transition-colors break-all">
-                      tylermalone@contraptionsoft.com
+                      tyler@contraptionsoft.com
                     </div>
                   </div>
                   <FiArrowRight className="text-gray-600 group-hover:text-orange-500 group-hover:translate-x-1 transition-all flex-shrink-0 hidden sm:block" />
