@@ -37,7 +37,7 @@ export default function Products() {
           initial="hidden"
           animate="show"
         >
-          <motion.div variants={fadeUp} className="p-6 sm:p-7 rounded-2xl border border-white/8 bg-[#111] hover:border-white/15 hover:scale-[1.02] transition-all group cursor-default">
+          <motion.div variants={fadeUp} className="p-6 sm:p-7 rounded-2xl border border-white/8 bg-[#111] hover:border-white/15 hover:scale-[1.02] transition-[border-color,transform] group cursor-default">
             <div className="w-10 h-10 rounded-xl flex items-center justify-center mb-6 group-hover:scale-110 transition-transform"
               style={{ backgroundColor: 'var(--accent)' }}>
               <FiMic className="text-[#0a0a0a]" size={18} />
@@ -55,7 +55,7 @@ export default function Products() {
             </ul>
           </motion.div>
 
-          <motion.div variants={fadeUp} className="p-6 sm:p-7 rounded-2xl border border-white/8 bg-[#111] hover:border-white/15 hover:scale-[1.02] transition-all group cursor-default">
+          <motion.div variants={fadeUp} className="p-6 sm:p-7 rounded-2xl border border-white/8 bg-[#111] hover:border-white/15 hover:scale-[1.02] transition-[border-color,transform] group cursor-default">
             <div className="w-10 h-10 rounded-xl flex items-center justify-center mb-6 group-hover:scale-110 transition-transform"
               style={{ backgroundColor: 'var(--accent)' }}>
               <FiTerminal className="text-[#0a0a0a]" size={18} />
@@ -73,7 +73,7 @@ export default function Products() {
             </ul>
           </motion.div>
 
-          <motion.div variants={fadeUp} className="p-6 sm:p-7 rounded-2xl border border-white/8 bg-[#111] hover:border-white/15 hover:scale-[1.02] transition-all group cursor-default">
+          <motion.div variants={fadeUp} className="p-6 sm:p-7 rounded-2xl border border-white/8 bg-[#111] hover:border-white/15 hover:scale-[1.02] transition-[border-color,transform] group cursor-default">
             <div className="w-10 h-10 rounded-xl flex items-center justify-center mb-6 group-hover:scale-110 transition-transform"
               style={{ backgroundColor: 'var(--accent)' }}>
               <FiDatabase className="text-[#0a0a0a]" size={18} />
