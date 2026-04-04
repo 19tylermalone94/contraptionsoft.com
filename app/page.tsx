@@ -1,6 +1,6 @@
 'use client';
 
-import { useState, useEffect } from 'react';
+import { useState } from 'react';
 import Image from 'next/image';
 import { motion, Variants } from 'framer-motion';
 import {
@@ -37,9 +37,6 @@ const vp = { once: true, margin: '-60px' };
 
 export default function Home() {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
-  const [mounted, setMounted] = useState(false);
-
-  useEffect(() => { setMounted(true); }, []);
 
   return (
     <div className="min-h-screen bg-[#0a0a0a] text-gray-100 w-full overflow-x-hidden">
@@ -95,7 +92,7 @@ export default function Home() {
           className="max-w-6xl mx-auto w-full"
           variants={stagger(0.14)}
           initial="hidden"
-          animate={mounted ? 'show' : 'hidden'}
+          animate="show"
         >
           {/* Veteran badge */}
           <motion.div variants={fadeIn} className="mb-10">
