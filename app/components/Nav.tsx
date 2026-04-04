@@ -10,7 +10,6 @@ const links = [
   { href: '/products', label: 'Products' },
   { href: '/work', label: 'Our Work' },
   { href: '/about', label: 'About' },
-  { href: '/contact', label: 'Contact' },
 ];
 
 export default function Nav() {
