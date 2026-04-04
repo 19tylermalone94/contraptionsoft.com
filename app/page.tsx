@@ -171,31 +171,22 @@ export default function Home() {
             viewport={vp}
             className="grid grid-cols-1 md:grid-cols-3 gap-4"
           >
-            {/* Voice Agent — featured, spans 2 rows */}
+            {/* Voice Agent */}
             <motion.div
               variants={fadeUp}
-              className="md:row-span-2 flex flex-col p-7 sm:p-9 rounded-2xl border group hover:scale-[1.02] transition-transform cursor-default"
-              style={{
-                background: 'linear-gradient(160deg, #0d1f12 0%, #0a0a0a 100%)',
-                borderColor: 'var(--accent)',
-                boxShadow: '0 0 48px rgba(0,255,136,0.08), inset 0 1px 0 rgba(0,255,136,0.1)',
-              }}>
-              <div className="mb-8">
-                <div className="w-12 h-12 rounded-xl flex items-center justify-center group-hover:scale-110 transition-transform"
-                  style={{ backgroundColor: 'var(--accent)' }}>
-                  <FiMic className="text-[#0a0a0a]" size={20} />
-                </div>
+              className="p-6 sm:p-7 rounded-2xl border border-white/8 bg-[#111] hover:border-white/15 hover:scale-[1.02] transition-all group cursor-default">
+              <div className="w-10 h-10 rounded-xl flex items-center justify-center mb-6 group-hover:scale-110 transition-transform"
+                style={{ backgroundColor: 'var(--accent)' }}>
+                <FiMic className="text-[#0a0a0a]" size={18} />
               </div>
-              <h3 className="text-2xl sm:text-3xl font-bold text-white mb-4 font-mono">Voice Agent</h3>
-              <p className="text-gray-400 leading-relaxed mb-8 flex-1">
-                An AI that answers your phone after hours, books appointments, handles FAQs, and routes urgent calls.
-                No lead goes cold because you were on a job.
+              <h3 className="text-xl font-bold text-white mb-2 font-mono">Voice Agent</h3>
+              <p className="text-sm text-gray-500 leading-relaxed mb-5">
+                An AI that answers your phone after hours, books appointments, handles FAQs, and routes urgent calls. No lead goes cold.
               </p>
-              <ul className="space-y-3 mt-auto">
+              <ul className="space-y-2">
                 {['Answers calls 24/7', 'Books appointments automatically', 'Handles common questions', 'Escalates urgent issues to you'].map((item) => (
-                  <li key={item} className="flex items-center gap-2.5 text-sm text-gray-300">
-                    <FiCheck size={14} style={{ color: 'var(--accent)', flexShrink: 0 }} />
-                    {item}
+                  <li key={item} className="flex items-center gap-2 text-xs text-gray-400">
+                    <FiCheck size={11} style={{ color: 'var(--accent)', flexShrink: 0 }} /> {item}
                   </li>
                 ))}
               </ul>
