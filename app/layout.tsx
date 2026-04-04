@@ -13,8 +13,8 @@ const geistMono = Geist_Mono({
 });
 
 export const metadata: Metadata = {
-  title: "ContraptionSoft LLC | Custom Software & Automation Solutions",
-  description: "Professional web development, AI agents, business software, and automation services. Helping businesses streamline operations with custom solutions and agentic AI.",
+  title: "ContraptionSoft LLC | AI Agents & Automation for Small Businesses",
+  description: "AI voice agents, morning briefings, and intelligent automation for small businesses. Veteran-owned. Based in Fort Collins, CO.",
 };
 
 export default function RootLayout({
