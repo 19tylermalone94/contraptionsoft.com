@@ -246,35 +246,97 @@ export default function Home() {
 
           </div>
 
-          {/* Additional services row */}
-          <div className="grid sm:grid-cols-3 gap-6 mt-6 md:mt-8">
-            {[
-              {
-                icon: <FiZap className="text-[#0a0a0a] text-xl" />,
-                title: 'Workflow Automation',
-                desc: 'Eliminate the repetitive stuff — invoicing, follow-ups, data entry. Your team does the work machines can\'t.',
-              },
-              {
-                icon: <FiGlobe className="text-[#0a0a0a] text-xl" />,
-                title: 'Web Presence',
-                desc: 'Fast, professional websites built and launched in weeks. Not months, not template slop — something that actually represents your business.',
-              },
-              {
-                icon: <FiTerminal className="text-[#0a0a0a] text-xl" />,
-                title: 'Custom Software',
-                desc: 'If your business has a process that doesn\'t fit any off-the-shelf tool, we build the tool.',
-              },
-            ].map(({ icon, title, desc }) => (
-              <div key={title} className="p-5 sm:p-6 rounded-xl border border-gray-800 hover:border-[#00ff88]/30 transition-all group"
-                style={{ background: '#0f0f0f' }}>
-                <div className="w-10 h-10 rounded-lg flex items-center justify-center mb-4 group-hover:scale-110 transition-transform"
-                  style={{ backgroundColor: 'var(--accent)' }}>
-                  {icon}
+          {/* Before/After comparison cards */}
+          <div className="grid sm:grid-cols-2 gap-6 mt-6 md:mt-8">
+
+            {/* Workflows */}
+            <div className="rounded-xl border border-gray-800 overflow-hidden" style={{ background: '#0f0f0f' }}>
+              <div className="px-5 py-3 border-b border-gray-800">
+                <div className="flex items-center gap-2">
+                  <FiZap className="text-sm" style={{ color: 'var(--accent)' }} />
+                  <span className="text-sm font-mono font-bold text-gray-100">Workflow Automation</span>
                 </div>
-                <h4 className="text-base font-bold text-gray-100 mb-2">{title}</h4>
-                <p className="text-sm text-gray-500 leading-relaxed">{desc}</p>
               </div>
-            ))}
+              <div className="grid grid-cols-2 divide-x divide-gray-800">
+                <div className="p-4 sm:p-5">
+                  <p className="text-xs font-mono uppercase tracking-widest text-gray-600 mb-3">Old way</p>
+                  <ul className="space-y-2">
+                    {[
+                      'Pick a tool (Zapier, Make, n8n…)',
+                      'Configure triggers & steps',
+                      'Debug it when it breaks',
+                      'Repeat for every new workflow',
+                    ].map((item) => (
+                      <li key={item} className="flex items-start gap-2 text-xs text-gray-600">
+                        <span className="mt-1 flex-shrink-0 text-gray-700">—</span>
+                        <span>{item}</span>
+                      </li>
+                    ))}
+                  </ul>
+                </div>
+                <div className="p-4 sm:p-5" style={{ background: 'rgba(0,255,136,0.03)' }}>
+                  <p className="text-xs font-mono uppercase tracking-widest mb-3" style={{ color: 'var(--accent)' }}>With an agent</p>
+                  <ul className="space-y-2">
+                    {[
+                      '"Send me a summary every Monday"',
+                      '"Flag invoices over $500"',
+                      '"Follow up if no reply in 2 days"',
+                      'Just say it. Agent handles the rest.',
+                    ].map((item) => (
+                      <li key={item} className="flex items-start gap-2 text-xs text-gray-300">
+                        <FiCheck className="flex-shrink-0 mt-0.5 text-xs" style={{ color: 'var(--accent)' }} />
+                        <span>{item}</span>
+                      </li>
+                    ))}
+                  </ul>
+                </div>
+              </div>
+            </div>
+
+            {/* Web Presence */}
+            <div className="rounded-xl border border-gray-800 overflow-hidden" style={{ background: '#0f0f0f' }}>
+              <div className="px-5 py-3 border-b border-gray-800">
+                <div className="flex items-center gap-2">
+                  <FiGlobe className="text-sm" style={{ color: 'var(--accent)' }} />
+                  <span className="text-sm font-mono font-bold text-gray-100">Web Presence</span>
+                </div>
+              </div>
+              <div className="grid grid-cols-2 divide-x divide-gray-800">
+                <div className="p-4 sm:p-5">
+                  <p className="text-xs font-mono uppercase tracking-widest text-gray-600 mb-3">Old way</p>
+                  <ul className="space-y-2">
+                    {[
+                      'Find & vet a web developer',
+                      'Wait days for responses',
+                      'Pay for every small change',
+                      'Hope they understood the brief',
+                    ].map((item) => (
+                      <li key={item} className="flex items-start gap-2 text-xs text-gray-600">
+                        <span className="mt-1 flex-shrink-0 text-gray-700">—</span>
+                        <span>{item}</span>
+                      </li>
+                    ))}
+                  </ul>
+                </div>
+                <div className="p-4 sm:p-5" style={{ background: 'rgba(0,255,136,0.03)' }}>
+                  <p className="text-xs font-mono uppercase tracking-widest mb-3" style={{ color: 'var(--accent)' }}>With an agent</p>
+                  <ul className="space-y-2">
+                    {[
+                      'Chat with it anytime — it doesn\'t sleep',
+                      'It codes, ships, and handles SEO',
+                      'Changes happen in minutes',
+                      'No queue. No invoice. No delay.',
+                    ].map((item) => (
+                      <li key={item} className="flex items-start gap-2 text-xs text-gray-300">
+                        <FiCheck className="flex-shrink-0 mt-0.5 text-xs" style={{ color: 'var(--accent)' }} />
+                        <span>{item}</span>
+                      </li>
+                    ))}
+                  </ul>
+                </div>
+              </div>
+            </div>
+
           </div>
         </div>
       </section>
