@@ -180,14 +180,11 @@ export default function Home() {
                 borderColor: 'var(--accent)',
                 boxShadow: '0 0 48px rgba(0,255,136,0.08), inset 0 1px 0 rgba(0,255,136,0.1)',
               }}>
-              <div className="flex items-start justify-between mb-8">
+              <div className="mb-8">
                 <div className="w-12 h-12 rounded-xl flex items-center justify-center group-hover:scale-110 transition-transform"
                   style={{ backgroundColor: 'var(--accent)' }}>
                   <FiMic className="text-[#0a0a0a]" size={20} />
                 </div>
-                <span className="text-xs font-mono px-2 py-1 rounded border" style={{ color: 'var(--accent)', borderColor: 'rgba(0,255,136,0.3)', background: 'rgba(0,255,136,0.07)' }}>
-                  Most Popular
-                </span>
               </div>
               <h3 className="text-2xl sm:text-3xl font-bold text-white mb-4 font-mono">Voice Agent</h3>
               <p className="text-gray-400 leading-relaxed mb-8 flex-1">
