@@ -8,6 +8,11 @@ const fadeUp: Variants = {
   show: { opacity: 1, y: 0, transition: { duration: 0.55, ease: 'easeOut' } },
 };
 
+const fadeIn: Variants = {
+  hidden: { opacity: 0 },
+  show: { opacity: 1, transition: { duration: 0.5, ease: 'easeOut' } },
+};
+
 const stagger = (delay = 0.1): Variants => ({
   hidden: {},
   show: { transition: { staggerChildren: delay } },
@@ -37,7 +42,7 @@ export default function Products() {
           initial="hidden"
           animate="show"
         >
-          <motion.div variants={fadeUp} className="p-6 sm:p-7 rounded-2xl border border-white/8 bg-[#111] hover:border-white/15 hover:scale-[1.02] transition-[border-color,transform] group cursor-default">
+          <motion.div variants={fadeIn} className="p-6 sm:p-7 rounded-2xl border border-white/8 bg-[#111] hover:border-white/15 hover:scale-[1.02] transition-colors group cursor-default">
             <div className="w-10 h-10 rounded-xl flex items-center justify-center mb-6 group-hover:scale-110 transition-transform"
               style={{ backgroundColor: 'var(--accent)' }}>
               <FiMic className="text-[#0a0a0a]" size={18} />
@@ -55,7 +60,7 @@ export default function Products() {
             </ul>
           </motion.div>
 
-          <motion.div variants={fadeUp} className="p-6 sm:p-7 rounded-2xl border border-white/8 bg-[#111] hover:border-white/15 hover:scale-[1.02] transition-[border-color,transform] group cursor-default">
+          <motion.div variants={fadeIn} className="p-6 sm:p-7 rounded-2xl border border-white/8 bg-[#111] hover:border-white/15 hover:scale-[1.02] transition-colors group cursor-default">
             <div className="w-10 h-10 rounded-xl flex items-center justify-center mb-6 group-hover:scale-110 transition-transform"
               style={{ backgroundColor: 'var(--accent)' }}>
               <FiTerminal className="text-[#0a0a0a]" size={18} />
@@ -73,7 +78,7 @@ export default function Products() {
             </ul>
           </motion.div>
 
-          <motion.div variants={fadeUp} className="p-6 sm:p-7 rounded-2xl border border-white/8 bg-[#111] hover:border-white/15 hover:scale-[1.02] transition-[border-color,transform] group cursor-default">
+          <motion.div variants={fadeIn} className="p-6 sm:p-7 rounded-2xl border border-white/8 bg-[#111] hover:border-white/15 hover:scale-[1.02] transition-colors group cursor-default">
             <div className="w-10 h-10 rounded-xl flex items-center justify-center mb-6 group-hover:scale-110 transition-transform"
               style={{ backgroundColor: 'var(--accent)' }}>
               <FiDatabase className="text-[#0a0a0a]" size={18} />
@@ -95,7 +100,7 @@ export default function Products() {
         {/* Before / After */}
         <motion.div
           className="mt-4 space-y-3"
-          variants={stagger(0.15)}
+          variants={stagger(0.12)}
           initial="hidden"
           animate="show"
         >
@@ -113,7 +118,7 @@ export default function Products() {
               after: ["Chat with it anytime — it doesn't sleep", 'It codes, ships, and handles SEO', 'Changes happen in minutes', 'No queue. No invoice. No delay.'],
             },
           ].map(({ icon, topic, before, after }) => (
-            <motion.div key={topic} variants={fadeUp} className="rounded-2xl border border-white/8 overflow-hidden" style={{ background: '#0d0d0d' }}>
+            <motion.div key={topic} variants={fadeIn} className="rounded-2xl border border-white/8 overflow-hidden" style={{ background: '#0d0d0d' }}>
               <div className="px-6 py-3 border-b border-white/8 flex items-center gap-2">
                 <span className="text-gray-500">{icon}</span>
                 <span className="text-xs font-mono text-gray-400 uppercase tracking-widest">{topic}</span>
