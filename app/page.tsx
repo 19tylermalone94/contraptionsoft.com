@@ -2,38 +2,10 @@
 
 import { useState } from 'react';
 import Image from 'next/image';
-import { motion, Variants } from 'framer-motion';
 import {
   FiMenu, FiX, FiMic, FiMail, FiArrowRight, FiCheck,
   FiDatabase, FiZap, FiGlobe, FiTerminal, FiShield, FiChevronDown
 } from 'react-icons/fi';
-
-const fadeUp: Variants = {
-  hidden: { opacity: 0, y: 28 },
-  show: { opacity: 1, y: 0, transition: { duration: 0.6, ease: 'easeOut' } },
-};
-
-const fadeIn: Variants = {
-  hidden: { opacity: 0 },
-  show: { opacity: 1, transition: { duration: 0.5, ease: 'easeOut' } },
-};
-
-const stagger = (delay = 0.1): Variants => ({
-  hidden: {},
-  show: { transition: { staggerChildren: delay } },
-});
-
-const slideLeft: Variants = {
-  hidden: { opacity: 0, x: -40 },
-  show: { opacity: 1, x: 0, transition: { duration: 0.6, ease: 'easeOut' } },
-};
-
-const slideRight: Variants = {
-  hidden: { opacity: 0, x: 40 },
-  show: { opacity: 1, x: 0, transition: { duration: 0.6, ease: 'easeOut' } },
-};
-
-const vp = { once: true, margin: '-60px' };
 
 export default function Home() {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
@@ -84,41 +56,29 @@ export default function Home() {
           backgroundImage: 'radial-gradient(circle, rgba(0,255,136,0.06) 1px, transparent 1px)',
           backgroundSize: '28px 28px',
         }}>
-        {/* Bottom fade */}
         <div className="absolute bottom-0 left-0 right-0 h-32 pointer-events-none"
           style={{ background: 'linear-gradient(to bottom, transparent, #0a0a0a)' }} />
 
-        <motion.div
-          className="max-w-6xl mx-auto w-full"
-          variants={stagger(0.14)}
-          initial="hidden"
-          animate="show"
-        >
-          {/* Veteran badge */}
-          <motion.div variants={fadeIn} className="mb-10">
+        <div className="max-w-6xl mx-auto w-full">
+          <div className="mb-10">
             <div className="inline-flex items-center gap-2.5 px-4 py-2 rounded-full border border-white/10 bg-white/5 backdrop-blur-sm">
               <Image src="/64px-Seal_of_the_United_States_Marine_Corps.svg.png" alt="USMC" width={22} height={22} className="opacity-80" />
               <span className="text-xs font-mono text-gray-400 tracking-widest uppercase">Veteran-Owned Business</span>
             </div>
-          </motion.div>
+          </div>
 
-          {/* Headline */}
-          <motion.h1 variants={fadeUp}
-            className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl xl:text-8xl font-bold leading-[1.05] tracking-tight max-w-4xl">
+          <h1 className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl xl:text-8xl font-bold leading-[1.05] tracking-tight max-w-4xl">
             AI Agents &amp; Automation
             <span className="block" style={{ color: 'var(--accent)' }}>for Small Businesses.</span>
-          </motion.h1>
+          </h1>
 
-          {/* Subtext */}
-          <motion.p variants={fadeUp}
-            className="mt-7 text-lg sm:text-xl text-gray-400 max-w-2xl leading-relaxed">
+          <p className="mt-7 text-lg sm:text-xl text-gray-400 max-w-2xl leading-relaxed">
             How many after-hours calls does your business miss?
             How many hours does your team spend on tasks a machine could handle?
             We build the tools that pick up the slack.
-          </motion.p>
+          </p>
 
-          {/* CTAs */}
-          <motion.div variants={fadeUp} className="mt-10 flex flex-wrap gap-4">
+          <div className="mt-10 flex flex-wrap gap-4">
             <a href="#contact"
               className="inline-flex items-center gap-2 px-7 py-3.5 rounded-lg font-semibold text-[#0a0a0a] transition-all hover:scale-105 active:scale-95"
               style={{ backgroundColor: 'var(--accent)', boxShadow: '0 0 32px rgba(0,255,136,0.25)' }}>
@@ -128,50 +88,34 @@ export default function Home() {
               className="inline-flex items-center gap-2 px-7 py-3.5 rounded-lg font-semibold text-gray-300 bg-white/5 border border-white/10 transition-all hover:bg-white/10 hover:scale-105 active:scale-95">
               See Our Products
             </a>
-          </motion.div>
+          </div>
 
-          {/* Location */}
-          <motion.p variants={fadeIn} className="mt-12 text-xs font-mono text-gray-600 tracking-widest uppercase">
+          <p className="mt-12 text-xs font-mono text-gray-600 tracking-widest uppercase">
             Fort Collins, CO &nbsp;/&nbsp; Serving Colorado &amp; Arkansas
-          </motion.p>
-        </motion.div>
+          </p>
+        </div>
 
-        {/* Scroll indicator */}
-        <motion.div
-          className="absolute bottom-8 left-1/2 -translate-x-1/2"
-          animate={{ y: [0, 6, 0] }}
-          transition={{ repeat: Infinity, duration: 2, ease: 'easeInOut' }}
-        >
+        <div className="absolute bottom-8 left-1/2 -translate-x-1/2">
           <FiChevronDown className="text-gray-700" size={22} />
-        </motion.div>
+        </div>
       </section>
 
       {/* ─── Products ─── */}
       <section id="products" className="py-24 sm:py-32 px-5 sm:px-8 bg-[#0a0a0a]">
         <div className="max-w-6xl mx-auto">
 
-          {/* Section label */}
-          <motion.div variants={stagger(0.1)} initial="hidden" whileInView="show" viewport={vp} className="mb-14">
-            <motion.p variants={fadeUp} className="text-xs font-mono tracking-[0.2em] uppercase mb-3" style={{ color: 'var(--accent)' }}>
+          <div className="mb-14">
+            <p className="text-xs font-mono tracking-[0.2em] uppercase mb-3" style={{ color: 'var(--accent)' }}>
               01 &mdash; What We Build
-            </motion.p>
-            <motion.h2 variants={fadeUp} className="text-3xl sm:text-4xl md:text-5xl font-bold text-white leading-tight max-w-xl">
+            </p>
+            <h2 className="text-3xl sm:text-4xl md:text-5xl font-bold text-white leading-tight max-w-xl">
               AI Tools Built for the Real World
-            </motion.h2>
-          </motion.div>
+            </h2>
+          </div>
 
-          {/* Bento grid */}
-          <motion.div
-            variants={stagger(0.1)}
-            initial="hidden"
-            whileInView="show"
-            viewport={vp}
-            className="grid grid-cols-1 md:grid-cols-3 gap-4"
-          >
-            {/* Voice Agent */}
-            <motion.div
-              variants={fadeUp}
-              className="p-6 sm:p-7 rounded-2xl border border-white/8 bg-[#111] hover:border-white/15 hover:scale-[1.02] transition-all group cursor-default">
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
+
+            <div className="p-6 sm:p-7 rounded-2xl border border-white/8 bg-[#111] hover:border-white/15 hover:scale-[1.02] transition-all group cursor-default">
               <div className="w-10 h-10 rounded-xl flex items-center justify-center mb-6 group-hover:scale-110 transition-transform"
                 style={{ backgroundColor: 'var(--accent)' }}>
                 <FiMic className="text-[#0a0a0a]" size={18} />
@@ -187,12 +131,9 @@ export default function Home() {
                   </li>
                 ))}
               </ul>
-            </motion.div>
+            </div>
 
-            {/* AI Agents */}
-            <motion.div
-              variants={fadeUp}
-              className="p-6 sm:p-7 rounded-2xl border border-white/8 bg-[#111] hover:border-white/15 hover:scale-[1.02] transition-all group cursor-default">
+            <div className="p-6 sm:p-7 rounded-2xl border border-white/8 bg-[#111] hover:border-white/15 hover:scale-[1.02] transition-all group cursor-default">
               <div className="w-10 h-10 rounded-xl flex items-center justify-center mb-6 group-hover:scale-110 transition-transform"
                 style={{ backgroundColor: 'var(--accent)' }}>
                 <FiTerminal className="text-[#0a0a0a]" size={18} />
@@ -208,12 +149,9 @@ export default function Home() {
                   </li>
                 ))}
               </ul>
-            </motion.div>
+            </div>
 
-            {/* File Search */}
-            <motion.div
-              variants={fadeUp}
-              className="p-6 sm:p-7 rounded-2xl border border-white/8 bg-[#111] hover:border-white/15 hover:scale-[1.02] transition-all group cursor-default">
+            <div className="p-6 sm:p-7 rounded-2xl border border-white/8 bg-[#111] hover:border-white/15 hover:scale-[1.02] transition-all group cursor-default">
               <div className="w-10 h-10 rounded-xl flex items-center justify-center mb-6 group-hover:scale-110 transition-transform"
                 style={{ backgroundColor: 'var(--accent)' }}>
                 <FiDatabase className="text-[#0a0a0a]" size={18} />
@@ -229,19 +167,12 @@ export default function Home() {
                   </li>
                 ))}
               </ul>
-            </motion.div>
-          </motion.div>
+            </div>
 
-          {/* Before / After — full-width comparison */}
-          <motion.div
-            variants={fadeUp}
-            initial="hidden"
-            whileInView="show"
-            viewport={vp}
-            className="mt-4 rounded-2xl border border-white/8 overflow-hidden"
-            style={{ background: '#0d0d0d' }}
-          >
-            {/* Header row */}
+          </div>
+
+          {/* Before / After */}
+          <div className="mt-4 rounded-2xl border border-white/8 overflow-hidden" style={{ background: '#0d0d0d' }}>
             <div className="grid grid-cols-2 border-b border-white/8">
               <div className="px-5 py-3 flex items-center gap-2 border-r border-white/8">
                 <FiZap size={13} className="text-gray-600" />
@@ -252,11 +183,7 @@ export default function Home() {
                 <span className="text-xs font-mono text-gray-500 uppercase tracking-widest">Web Presence</span>
               </div>
             </div>
-
-            {/* Content rows */}
             <div className="grid grid-cols-2 divide-x divide-white/5">
-
-              {/* Workflow column */}
               <div className="grid grid-rows-2 divide-y divide-white/5">
                 <div className="p-5 sm:p-6">
                   <p className="text-xs font-mono text-gray-600 uppercase tracking-widest mb-3">Old way</p>
@@ -279,8 +206,6 @@ export default function Home() {
                   </ul>
                 </div>
               </div>
-
-              {/* Web Presence column */}
               <div className="grid grid-rows-2 divide-y divide-white/5">
                 <div className="p-5 sm:p-6">
                   <p className="text-xs font-mono text-gray-600 uppercase tracking-widest mb-3">Old way</p>
@@ -303,9 +228,8 @@ export default function Home() {
                   </ul>
                 </div>
               </div>
-
             </div>
-          </motion.div>
+          </div>
 
         </div>
       </section>
@@ -314,30 +238,23 @@ export default function Home() {
       <section id="work" className="py-24 sm:py-32 px-5 sm:px-8" style={{ background: '#080808' }}>
         <div className="max-w-6xl mx-auto">
 
-          <motion.div variants={stagger(0.1)} initial="hidden" whileInView="show" viewport={vp} className="mb-14">
-            <motion.p variants={fadeUp} className="text-xs font-mono tracking-[0.2em] uppercase mb-3" style={{ color: 'var(--accent)' }}>
+          <div className="mb-14">
+            <p className="text-xs font-mono tracking-[0.2em] uppercase mb-3" style={{ color: 'var(--accent)' }}>
               02 &mdash; Our Work
-            </motion.p>
-            <motion.h2 variants={fadeUp} className="text-3xl sm:text-4xl md:text-5xl font-bold text-white leading-tight">
+            </p>
+            <h2 className="text-3xl sm:text-4xl md:text-5xl font-bold text-white leading-tight">
               Work That Ships
-            </motion.h2>
-          </motion.div>
+            </h2>
+          </div>
 
-          {/* Case study card — editorial layout */}
           <div className="grid md:grid-cols-2 gap-4">
 
-            <motion.div
-              variants={slideLeft}
-              initial="hidden"
-              whileInView="show"
-              viewport={vp}
-              className="p-8 sm:p-10 rounded-2xl flex flex-col justify-between"
+            <div className="p-8 sm:p-10 rounded-2xl flex flex-col justify-between"
               style={{
                 background: 'linear-gradient(150deg, #0c1c10 0%, #0a0a0a 100%)',
                 border: '1px solid rgba(0,255,136,0.25)',
                 boxShadow: '0 0 60px rgba(0,255,136,0.05)',
-              }}
-            >
+              }}>
               <div>
                 <p className="text-xs font-mono uppercase tracking-widest text-gray-500 mb-3">Case Study</p>
                 <h3 className="text-2xl sm:text-3xl font-bold text-white mb-5">Malone Septic &amp; Excavation</h3>
@@ -347,35 +264,22 @@ export default function Home() {
                   customers search, and leads come in while the owner is on the job.
                 </p>
               </div>
-              <motion.div
-                className="grid grid-cols-3 gap-3 mt-8"
-                variants={stagger(0.1)}
-                initial="hidden"
-                whileInView="show"
-                viewport={vp}
-              >
+              <div className="grid grid-cols-3 gap-6 mt-8">
                 {[
                   { stat: '0 → Live', label: 'Web Presence' },
                   { stat: '1 Week', label: 'Start to Launch' },
                   { stat: 'Organic', label: 'Leads from Search' },
                 ].map(({ stat, label }) => (
-                  <motion.div key={label} variants={fadeUp}>
+                  <div key={label}>
                     <div className="text-2xl font-bold font-mono" style={{ color: 'var(--accent)' }}>{stat}</div>
                     <div className="text-xs text-gray-600 mt-1">{label}</div>
-                  </motion.div>
+                  </div>
                 ))}
-              </motion.div>
-            </motion.div>
+              </div>
+            </div>
 
-            {/* Your business here */}
-            <motion.div
-              variants={slideRight}
-              initial="hidden"
-              whileInView="show"
-              viewport={vp}
-              className="p-8 sm:p-10 rounded-2xl border border-dashed border-white/10 flex flex-col items-start justify-between gap-8"
-              style={{ background: '#0d0d0d' }}
-            >
+            <div className="p-8 sm:p-10 rounded-2xl border border-dashed border-white/10 flex flex-col items-start justify-between gap-8"
+              style={{ background: '#0d0d0d' }}>
               <div>
                 <h3 className="text-xl font-bold text-gray-300 mb-3">Your Business Here</h3>
                 <p className="text-gray-500 leading-relaxed text-sm">
@@ -389,7 +293,7 @@ export default function Home() {
                 style={{ backgroundColor: 'var(--accent)', color: '#0a0a0a' }}>
                 Get in Touch <FiArrowRight size={14} />
               </a>
-            </motion.div>
+            </div>
 
           </div>
         </div>
@@ -399,18 +303,13 @@ export default function Home() {
       <section id="about" className="py-24 sm:py-32 px-5 sm:px-8 bg-[#0a0a0a]">
         <div className="max-w-6xl mx-auto">
 
-          <motion.p
-            variants={fadeUp}
-            initial="hidden"
-            whileInView="show"
-            viewport={vp}
-            className="text-xs font-mono tracking-[0.2em] uppercase mb-14" style={{ color: 'var(--accent)' }}>
+          <p className="text-xs font-mono tracking-[0.2em] uppercase mb-14" style={{ color: 'var(--accent)' }}>
             03 &mdash; About
-          </motion.p>
+          </p>
 
           <div className="grid md:grid-cols-2 gap-12 md:gap-20 items-start">
 
-            <motion.div variants={slideLeft} initial="hidden" whileInView="show" viewport={vp}>
+            <div>
               <h2 className="text-3xl sm:text-4xl md:text-5xl font-bold text-white leading-tight mb-8">
                 About ContraptionSoft
               </h2>
@@ -428,10 +327,9 @@ export default function Home() {
                   Based in Fort Collins, CO. Currently working with businesses across Colorado and Arkansas.
                 </p>
               </div>
-            </motion.div>
+            </div>
 
-            <motion.div variants={slideRight} initial="hidden" whileInView="show" viewport={vp} className="space-y-6">
-              {/* Veteran card */}
+            <div className="space-y-6">
               <div className="flex items-center gap-5 p-6 rounded-2xl border border-white/8 bg-[#111]">
                 <Image
                   src="/64px-Seal_of_the_United_States_Marine_Corps.svg.png"
@@ -451,7 +349,6 @@ export default function Home() {
                 </div>
               </div>
 
-              {/* Stats — horizontal */}
               <div className="grid grid-cols-2 gap-3">
                 {[
                   { val: '100%', label: 'Custom-built' },
@@ -465,7 +362,7 @@ export default function Home() {
                   </div>
                 ))}
               </div>
-            </motion.div>
+            </div>
 
           </div>
         </div>
@@ -474,39 +371,26 @@ export default function Home() {
       {/* ─── Contact ─── */}
       <section id="contact" className="py-24 sm:py-32 px-5 sm:px-8" style={{ background: '#080808' }}>
         <div className="max-w-6xl mx-auto">
+          <p className="text-xs font-mono tracking-[0.2em] uppercase mb-6" style={{ color: 'var(--accent)' }}>
+            04 &mdash; Get in Touch
+          </p>
+          <h2 className="text-4xl sm:text-5xl md:text-6xl font-bold text-white leading-tight max-w-2xl mb-6">
+            Let&apos;s Have a Straight Conversation.
+          </h2>
+          <p className="text-lg text-gray-500 max-w-lg mb-12">
+            No sales deck. Tell us what problem you&apos;re dealing with — we&apos;ll tell you honestly if AI can help, and what it would cost.
+          </p>
 
-          <motion.div
-            variants={stagger(0.12)}
-            initial="hidden"
-            whileInView="show"
-            viewport={vp}
-          >
-            <motion.p variants={fadeUp} className="text-xs font-mono tracking-[0.2em] uppercase mb-6" style={{ color: 'var(--accent)' }}>
-              04 &mdash; Get in Touch
-            </motion.p>
-            <motion.h2 variants={fadeUp} className="text-4xl sm:text-5xl md:text-6xl font-bold text-white leading-tight max-w-2xl mb-6">
-              Let&apos;s Have a Straight Conversation.
-            </motion.h2>
-            <motion.p variants={fadeUp} className="text-lg text-gray-500 max-w-lg mb-12">
-              No sales deck. Tell us what problem you&apos;re dealing with — we&apos;ll tell you honestly if AI can help, and what it would cost.
-            </motion.p>
+          <a href="mailto:tyler@contraptionsoft.com" className="group inline-flex items-center gap-3">
+            <span className="text-2xl sm:text-3xl md:text-4xl font-mono font-bold text-white group-hover:underline decoration-[#00ff88] underline-offset-4 transition-all">
+              tyler@contraptionsoft.com
+            </span>
+            <FiArrowRight size={24} className="text-gray-600 group-hover:text-[#00ff88] group-hover:translate-x-1 transition-all" />
+          </a>
 
-            <motion.a
-              variants={fadeUp}
-              href="mailto:tyler@contraptionsoft.com"
-              className="group inline-flex items-center gap-3"
-            >
-              <span className="text-2xl sm:text-3xl md:text-4xl font-mono font-bold text-white group-hover:underline decoration-[var(--accent)] underline-offset-4 transition-all">
-                tyler@contraptionsoft.com
-              </span>
-              <FiArrowRight size={24} className="text-gray-600 group-hover:text-[#00ff88] group-hover:translate-x-1 transition-all" />
-            </motion.a>
-
-            <motion.p variants={fadeIn} className="mt-8 text-sm text-gray-600">
-              Responds within 24 hours. Fort Collins or Northwest Arkansas? In-person works too.
-            </motion.p>
-          </motion.div>
-
+          <p className="mt-8 text-sm text-gray-600">
+            Responds within 24 hours. Fort Collins or Northwest Arkansas? In-person works too.
+          </p>
         </div>
       </section>
 
