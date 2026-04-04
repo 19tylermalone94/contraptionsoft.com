@@ -1,31 +1,43 @@
+'use client';
+
+import { motion, Variants } from 'framer-motion';
 import { FiMic, FiTerminal, FiDatabase, FiZap, FiGlobe, FiCheck, FiArrowRight } from 'react-icons/fi';
 
-export const metadata = {
-  title: 'Products | ContraptionSoft LLC',
-  description: 'AI voice agents, always-on AI assistants, local file search, and automation tools for small businesses.',
+const fadeUp: Variants = {
+  hidden: { opacity: 0, y: 24 },
+  show: { opacity: 1, y: 0, transition: { duration: 0.55, ease: 'easeOut' } },
 };
+
+const stagger = (delay = 0.1): Variants => ({
+  hidden: {},
+  show: { transition: { staggerChildren: delay } },
+});
 
 export default function Products() {
   return (
     <main className="min-h-screen bg-[#0a0a0a] px-5 sm:px-8 pt-28 pb-24">
       <div className="max-w-6xl mx-auto">
 
-        <div className="mb-14">
-          <p className="text-xs font-mono tracking-[0.2em] uppercase mb-3" style={{ color: 'var(--accent)' }}>
+        <motion.div variants={stagger(0.12)} initial="hidden" animate="show" className="mb-14">
+          <motion.p variants={fadeUp} className="text-xs font-mono tracking-[0.2em] uppercase mb-3" style={{ color: 'var(--accent)' }}>
             01 &mdash; What We Build
-          </p>
-          <h1 className="text-3xl sm:text-4xl md:text-5xl font-bold text-white leading-tight max-w-xl">
+          </motion.p>
+          <motion.h1 variants={fadeUp} className="text-3xl sm:text-4xl md:text-5xl font-bold text-white leading-tight max-w-xl">
             AI Tools Built for the Real World
-          </h1>
-          <p className="mt-4 text-gray-500 max-w-xl">
+          </motion.h1>
+          <motion.p variants={fadeUp} className="mt-4 text-gray-500 max-w-xl">
             Not vaporware. Not demos. Deployed tools that run your business while you&apos;re busy running your business.
-          </p>
-        </div>
+          </motion.p>
+        </motion.div>
 
         {/* Product cards */}
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
-
-          <div className="p-6 sm:p-7 rounded-2xl border border-white/8 bg-[#111] hover:border-white/15 hover:scale-[1.02] transition-all group cursor-default">
+        <motion.div
+          className="grid grid-cols-1 md:grid-cols-3 gap-4"
+          variants={stagger(0.1)}
+          initial="hidden"
+          animate="show"
+        >
+          <motion.div variants={fadeUp} className="p-6 sm:p-7 rounded-2xl border border-white/8 bg-[#111] hover:border-white/15 hover:scale-[1.02] transition-all group cursor-default">
             <div className="w-10 h-10 rounded-xl flex items-center justify-center mb-6 group-hover:scale-110 transition-transform"
               style={{ backgroundColor: 'var(--accent)' }}>
               <FiMic className="text-[#0a0a0a]" size={18} />
@@ -41,9 +53,9 @@ export default function Products() {
                 </li>
               ))}
             </ul>
-          </div>
+          </motion.div>
 
-          <div className="p-6 sm:p-7 rounded-2xl border border-white/8 bg-[#111] hover:border-white/15 hover:scale-[1.02] transition-all group cursor-default">
+          <motion.div variants={fadeUp} className="p-6 sm:p-7 rounded-2xl border border-white/8 bg-[#111] hover:border-white/15 hover:scale-[1.02] transition-all group cursor-default">
             <div className="w-10 h-10 rounded-xl flex items-center justify-center mb-6 group-hover:scale-110 transition-transform"
               style={{ backgroundColor: 'var(--accent)' }}>
               <FiTerminal className="text-[#0a0a0a]" size={18} />
@@ -59,9 +71,9 @@ export default function Products() {
                 </li>
               ))}
             </ul>
-          </div>
+          </motion.div>
 
-          <div className="p-6 sm:p-7 rounded-2xl border border-white/8 bg-[#111] hover:border-white/15 hover:scale-[1.02] transition-all group cursor-default">
+          <motion.div variants={fadeUp} className="p-6 sm:p-7 rounded-2xl border border-white/8 bg-[#111] hover:border-white/15 hover:scale-[1.02] transition-all group cursor-default">
             <div className="w-10 h-10 rounded-xl flex items-center justify-center mb-6 group-hover:scale-110 transition-transform"
               style={{ backgroundColor: 'var(--accent)' }}>
               <FiDatabase className="text-[#0a0a0a]" size={18} />
@@ -77,13 +89,16 @@ export default function Products() {
                 </li>
               ))}
             </ul>
-          </div>
+          </motion.div>
+        </motion.div>
 
-        </div>
-
-        {/* Before / After — two stacked comparison blocks */}
-        <div className="mt-4 space-y-3">
-
+        {/* Before / After */}
+        <motion.div
+          className="mt-4 space-y-3"
+          variants={stagger(0.15)}
+          initial="hidden"
+          animate="show"
+        >
           {[
             {
               icon: <FiZap size={14} />,
@@ -98,17 +113,12 @@ export default function Products() {
               after: ["Chat with it anytime — it doesn't sleep", 'It codes, ships, and handles SEO', 'Changes happen in minutes', 'No queue. No invoice. No delay.'],
             },
           ].map(({ icon, topic, before, after }) => (
-            <div key={topic} className="rounded-2xl border border-white/8 overflow-hidden" style={{ background: '#0d0d0d' }}>
-              {/* Topic header */}
+            <motion.div key={topic} variants={fadeUp} className="rounded-2xl border border-white/8 overflow-hidden" style={{ background: '#0d0d0d' }}>
               <div className="px-6 py-3 border-b border-white/8 flex items-center gap-2">
                 <span className="text-gray-500">{icon}</span>
                 <span className="text-xs font-mono text-gray-400 uppercase tracking-widest">{topic}</span>
               </div>
-
-              {/* Before → After */}
               <div className="flex flex-col sm:flex-row">
-
-                {/* Before */}
                 <div className="flex-1 p-6 sm:p-7">
                   <p className="text-xs font-mono text-gray-600 uppercase tracking-widest mb-4">Without an agent</p>
                   <ul className="space-y-3">
@@ -120,8 +130,6 @@ export default function Products() {
                     ))}
                   </ul>
                 </div>
-
-                {/* Arrow */}
                 <div className="hidden sm:flex items-center justify-center px-2">
                   <div className="flex flex-col items-center gap-1">
                     <div className="w-px h-8 bg-white/10" />
@@ -132,10 +140,7 @@ export default function Products() {
                 <div className="sm:hidden flex items-center justify-center py-2 border-t border-white/8">
                   <FiArrowRight size={16} className="rotate-90" style={{ color: 'var(--accent)' }} />
                 </div>
-
-                {/* After */}
-                <div className="flex-1 p-6 sm:p-7 border-t sm:border-t-0 sm:border-l border-white/8"
-                  style={{ background: 'rgba(0,255,136,0.03)' }}>
+                <div className="flex-1 p-6 sm:p-7 border-t sm:border-t-0 sm:border-l border-white/8" style={{ background: 'rgba(0,255,136,0.03)' }}>
                   <p className="text-xs font-mono uppercase tracking-widest mb-4" style={{ color: 'var(--accent)' }}>With an agent</p>
                   <ul className="space-y-3">
                     {after.map((item) => (
@@ -146,12 +151,10 @@ export default function Products() {
                     ))}
                   </ul>
                 </div>
-
               </div>
-            </div>
+            </motion.div>
           ))}
-
-        </div>
+        </motion.div>
 
       </div>
     </main>

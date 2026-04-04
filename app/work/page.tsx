@@ -1,31 +1,44 @@
+'use client';
+
 import Link from 'next/link';
+import { motion, Variants } from 'framer-motion';
 import { FiGlobe, FiArrowRight } from 'react-icons/fi';
 
-export const metadata = {
-  title: 'Our Work | ContraptionSoft LLC',
-  description: 'Real projects, real outcomes. See what ContraptionSoft has built for small businesses.',
+const fadeUp: Variants = {
+  hidden: { opacity: 0, y: 24 },
+  show: { opacity: 1, y: 0, transition: { duration: 0.55, ease: 'easeOut' } },
 };
+
+const stagger = (delay = 0.1): Variants => ({
+  hidden: {},
+  show: { transition: { staggerChildren: delay } },
+});
 
 export default function Work() {
   return (
     <main className="min-h-screen bg-[#080808] px-5 sm:px-8 pt-28 pb-24">
       <div className="max-w-6xl mx-auto">
 
-        <div className="mb-14">
-          <p className="text-xs font-mono tracking-[0.2em] uppercase mb-3" style={{ color: 'var(--accent)' }}>
+        <motion.div variants={stagger(0.12)} initial="hidden" animate="show" className="mb-14">
+          <motion.p variants={fadeUp} className="text-xs font-mono tracking-[0.2em] uppercase mb-3" style={{ color: 'var(--accent)' }}>
             02 &mdash; Our Work
-          </p>
-          <h1 className="text-3xl sm:text-4xl md:text-5xl font-bold text-white leading-tight">
+          </motion.p>
+          <motion.h1 variants={fadeUp} className="text-3xl sm:text-4xl md:text-5xl font-bold text-white leading-tight">
             Work That Ships
-          </h1>
-          <p className="mt-4 text-gray-500 max-w-xl">
+          </motion.h1>
+          <motion.p variants={fadeUp} className="mt-4 text-gray-500 max-w-xl">
             Real projects, real outcomes.
-          </p>
-        </div>
+          </motion.p>
+        </motion.div>
 
-        <div className="grid md:grid-cols-2 gap-4">
-
-          <div className="p-8 sm:p-10 rounded-2xl flex flex-col justify-between"
+        <motion.div
+          className="grid md:grid-cols-2 gap-4"
+          variants={stagger(0.15)}
+          initial="hidden"
+          animate="show"
+        >
+          <motion.div variants={fadeUp}
+            className="p-8 sm:p-10 rounded-2xl flex flex-col justify-between"
             style={{
               background: 'linear-gradient(150deg, #0c1c10 0%, #0a0a0a 100%)',
               border: '1px solid rgba(0,255,136,0.25)',
@@ -58,9 +71,10 @@ export default function Work() {
                 </div>
               ))}
             </div>
-          </div>
+          </motion.div>
 
-          <div className="p-8 sm:p-10 rounded-2xl border border-dashed border-white/10 flex flex-col items-start justify-between gap-8"
+          <motion.div variants={fadeUp}
+            className="p-8 sm:p-10 rounded-2xl border border-dashed border-white/10 flex flex-col items-start justify-between gap-8"
             style={{ background: '#0d0d0d' }}>
             <div>
               <h2 className="text-xl font-bold text-gray-300 mb-3">Your Business Here</h2>
@@ -75,9 +89,9 @@ export default function Work() {
               style={{ backgroundColor: 'var(--accent)', color: '#0a0a0a' }}>
               Get in Touch <FiArrowRight size={14} />
             </Link>
-          </div>
+          </motion.div>
+        </motion.div>
 
-        </div>
       </div>
     </main>
   );
