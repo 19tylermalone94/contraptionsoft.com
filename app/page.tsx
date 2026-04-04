@@ -186,26 +186,26 @@ export default function Home() {
               </ul>
             </div>
 
-            {/* Morning Briefing */}
+            {/* AI Agents */}
             <div className="p-6 md:p-8 rounded-xl border border-gray-800 hover:border-[#00ff88]/40 transition-all hover:scale-105 group"
-              style={{ background: 'linear-gradient(135deg, #141414, #0d0d0d)', boxShadow: '0 0 0 transparent' }}>
+              style={{ background: 'linear-gradient(135deg, #141414, #0d0d0d)' }}>
               <div className="w-12 h-12 sm:w-14 sm:h-14 rounded-lg flex items-center justify-center mb-5 group-hover:scale-110 transition-transform"
                 style={{ backgroundColor: 'var(--accent)' }}>
-                <FiMail className="text-[#0a0a0a] text-xl sm:text-2xl" />
+                <FiTerminal className="text-[#0a0a0a] text-xl sm:text-2xl" />
               </div>
               <h3 className="text-xl sm:text-2xl font-bold text-gray-100 mb-3" style={{ fontFamily: 'var(--font-geist-mono)' }}>
-                Morning Briefing
+                AI Agents
               </h3>
               <p className="text-sm sm:text-base text-gray-400 leading-relaxed mb-5">
-                Every morning, an AI reads your emails, calendar, and job queue — then sends you a
-                plain-English summary before you start your day. No more inbox triage.
+                Always-on AI that you reach through your messaging app of choice. Ask it to pull a morning
+                briefing, spin up a web page, handle a deployment, or research a vendor — it just does it.
               </p>
               <ul className="space-y-2">
                 {[
-                  'Daily digest of emails & tasks',
-                  'Flags urgent items',
-                  'Summarizes customer messages',
-                  'Delivered by 7 AM',
+                  'Available on messaging apps (Discord, Slack, etc.)',
+                  'Handles research, writing, and scheduling',
+                  'Can build and deploy web projects',
+                  'Runs 24/7 — not just when you open an app',
                 ].map((item) => (
                   <li key={item} className="flex items-start gap-2 text-gray-300 text-sm">
                     <FiCheck className="flex-shrink-0 mt-0.5" style={{ color: 'var(--accent)' }} />
@@ -315,13 +315,13 @@ export default function Home() {
               </div>
               <p className="text-sm sm:text-base text-gray-400 leading-relaxed mb-5">
                 A local excavation company had no web presence at all. We built and launched a full site —
-                branding, copy, contact forms, SEO — in under three weeks. Now they show up when
+                branding, copy, contact forms, SEO — in one week. Now they show up when
                 customers search, and leads come in while the owner is on the job.
               </p>
               <div className="grid grid-cols-3 gap-3">
                 {[
                   { stat: '0 → live', label: 'web presence' },
-                  { stat: '< 3 wks', label: 'start to launch' },
+                  { stat: '1 week', label: 'start to launch' },
                   { stat: 'organic', label: 'leads from search' },
                 ].map(({ stat, label }) => (
                   <div key={label} className="text-center p-3 rounded-lg bg-[#0a0a0a] border border-gray-800">
