@@ -345,7 +345,7 @@ export default function Home() {
                   built straight, delivered fast, explained plainly.
                 </p>
                 <p>
-                  Based in Fort Collins, CO. Currently working with businesses across Colorado and Arkansas.
+                  Based in Fort Collins, CO. Currently working with businesses across Colorado and Central Arkansas.
                 </p>
               </div>
             </div>
@@ -410,7 +410,7 @@ export default function Home() {
           </a>
 
           <p className="mt-8 text-sm text-gray-600">
-            Responds within 24 hours. Fort Collins or Northwest Arkansas? In-person works too.
+            Responds within 24 hours. Fort Collins or Central Arkansas (Little Rock, Benton, Hot Springs area)? In-person works too.
           </p>
         </div>
       </section>
