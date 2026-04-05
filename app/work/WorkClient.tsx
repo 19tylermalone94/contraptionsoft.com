@@ -46,7 +46,7 @@ export default function Work() {
           {/* Malone Septic case study */}
           <motion.div
             {...appear(CASE_CARD)}
-            className="p-8 sm:p-10 rounded-2xl flex flex-col justify-between"
+            className="p-5 sm:p-8 md:p-10 rounded-2xl flex flex-col justify-between"
             style={{
               background: 'linear-gradient(150deg, #0c1c10 0%, #0a0a0a 100%)',
               border: '1px solid rgba(0,255,136,0.25)',
@@ -71,14 +71,14 @@ export default function Work() {
                 </StreamText>
               </p>
             </div>
-            <div className="grid grid-cols-3 gap-6 mt-8">
+            <div className="grid grid-cols-3 gap-3 sm:gap-6 mt-8">
               {[
                 { stat: '0 → Live', label: 'Web Presence',      delay: CASE_CARD + 2600 },
                 { stat: '1 Week',   label: 'Start to Launch',   delay: CASE_CARD + 2900 },
                 { stat: 'Organic',  label: 'Leads from Search', delay: CASE_CARD + 3200 },
               ].map(({ stat, label, delay }) => (
                 <motion.div key={label} {...appear(delay)}>
-                  <div className="text-2xl font-bold font-mono" style={{ color: 'var(--accent)' }}>
+                  <div className="text-lg sm:text-2xl font-bold font-mono" style={{ color: 'var(--accent)' }}>
                     <StreamText speed={55} startDelay={delay + 80}>{stat}</StreamText>
                   </div>
                   <div className="text-xs text-gray-600 mt-1">
@@ -92,7 +92,7 @@ export default function Work() {
           {/* Your business here */}
           <motion.div
             {...appear(YOUR_CARD)}
-            className="p-8 sm:p-10 rounded-2xl border border-dashed border-white/10 flex flex-col items-start justify-between gap-8"
+            className="p-5 sm:p-8 md:p-10 rounded-2xl border border-dashed border-white/10 flex flex-col items-start justify-between gap-8"
             style={{ background: '#0d0d0d' }}>
             <div>
               <h2 className="text-xl font-bold text-gray-300 mb-3">
@@ -105,7 +105,7 @@ export default function Work() {
               </p>
             </div>
             <Link href="/contact"
-              className="inline-flex items-center gap-2 px-6 py-3 rounded-lg font-semibold text-sm transition-all hover:scale-105"
+              className="inline-flex items-center justify-center gap-2 w-full sm:w-auto px-6 py-3 rounded-lg font-semibold text-sm transition-all hover:scale-105"
               style={{ backgroundColor: 'var(--accent)', color: '#0a0a0a' }}>
               Get in Touch <FiArrowRight size={14} />
             </Link>
