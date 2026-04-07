@@ -2,18 +2,8 @@
 
 import Link from 'next/link';
 import { motion } from 'framer-motion';
-import {
-  FiPhone, FiFileText, FiTrendingUp, FiEye, FiBook, FiCalendar,
-  FiCheck, FiArrowRight,
-} from 'react-icons/fi';
+import { FiArrowRight, FiZap, FiClock, FiEye } from 'react-icons/fi';
 import StreamText from '../components/StreamText';
-
-const t = (words: number, speed = 28) => words * speed;
-
-const HEADER_LABEL = 0;
-const HEADER_H1    = 350;
-const HEADER_SUB   = 750;
-const HEADER_DONE  = HEADER_SUB + t(22, 22);
 
 function appear(delayMs: number) {
   return {
@@ -23,155 +13,143 @@ function appear(delayMs: number) {
   };
 }
 
-const ROLES = [
+// Example prompts grouped by flavor
+const EXAMPLES = [
   {
-    icon: FiPhone,
-    title: 'Front Desk Agent',
-    tagline: 'Handles your phones and inbound messages so nothing slips.',
-    items: [
-      'Answers after-hours calls and captures leads',
-      'Responds to contact form submissions with a personalized follow-up',
-      'Handles common FAQ-style questions without human involvement',
-      'Sends appointment reminders and follow-ups via SMS or email',
+    icon: FiZap,
+    label: 'On demand',
+    desc: 'Just ask and it does it.',
+    prompts: [
+      { user: 'Hey, update the products page to include the new HVAC package we added last week.', agent: 'Done — product page updated and deployed.' },
+      { user: 'Pull all the invoices from March and tell me who's overdue.', agent: 'Found 4 overdue invoices totaling $3,840. Want me to send follow-ups?' },
+      { user: 'Summarize the last 30 emails from clients.', agent: 'Here's a rundown — 3 need a response today, 1 looks like a new lead.' },
     ],
   },
   {
-    icon: FiFileText,
-    title: 'Office Manager',
-    tagline: 'Keeps the back office moving without you chasing it.',
-    items: [
-      'Drafts and sends invoices, then follows up on unpaid ones',
-      'Pulls reports from QuickBooks, Stripe, or Square and summarizes them in plain English',
-      'Monitors your Gmail inbox, triages by urgency, and drafts replies for review',
-      'Fills out repetitive forms — permits, vendor onboarding, and similar',
-    ],
-  },
-  {
-    icon: FiTrendingUp,
-    title: 'Sales Rep',
-    tagline: 'Works your pipeline without you managing it.',
-    items: [
-      'Enriches inbound leads — looks up the business, pulls contact info, scores them',
-      'Moves deals through pipeline stages based on email activity',
-      'Sends drip follow-up sequences after a quote goes out',
-      'Alerts you when a high-value lead goes cold',
+    icon: FiClock,
+    label: 'Scheduled',
+    desc: 'Set it once and it runs on its own.',
+    prompts: [
+      { user: 'At 5pm every Friday, message the crew and ask where things stand for the week.', agent: 'Got it — I'll check in with everyone at 5pm Fridays.' },
+      { user: 'Every morning, check my inbox and flag anything urgent.', agent: 'Running daily at 8am. You'll hear from me if something needs attention.' },
+      { user: 'On the 1st of each month, pull a revenue summary from Stripe and drop it in Slack.', agent: 'Scheduled. First report goes out May 1st.' },
     ],
   },
   {
     icon: FiEye,
-    title: 'On-Call Monitor',
-    tagline: 'Watches what matters and flags anything that needs attention.',
-    items: [
-      'Monitors your website uptime and pings you if it goes down',
-      'Scrapes competitor pricing or job postings on a schedule',
-      'Watches Google Reviews and drafts a response when a new one drops',
-      'Tracks mentions of your business name across the web',
-    ],
-  },
-  {
-    icon: FiBook,
-    title: 'Research Assistant',
-    tagline: 'Answers questions and drafts documents from your own material.',
-    items: [
-      'Answers employee questions against your document library',
-      'Summarizes a week of emails or Slack messages every Monday morning',
-      'Generates a first draft of a proposal or SOW from a few bullet points',
-      'Transcribes voicemails and routes them to the right person',
-    ],
-  },
-  {
-    icon: FiCalendar,
-    title: 'Executive Assistant',
-    tagline: 'Handles the scheduling and coordination you keep putting off.',
-    items: [
-      'Finds a meeting time across multiple calendars and sends the invite',
-      'Reminds you about recurring tasks before you forget them',
-      'Auto-schedules social posts from a content queue',
-      'Tracks recurring deadlines so they don\'t sneak up on you',
+    label: 'Always watching',
+    desc: 'Monitors things so you don't have to.',
+    prompts: [
+      { user: 'If the site goes down, text me immediately.', agent: 'Watching it. You'll get a text within a minute of any downtime.' },
+      { user: 'When a new Google Review comes in, draft a response for me to approve.', agent: 'On it — I'll have a draft ready before you even see the notification.' },
+      { user: 'Keep an eye on the competitor pricing page and let me know if anything changes.', agent: 'I'll check weekly and flag any updates.' },
     ],
   },
 ];
 
-// Stagger card appearance after header
-const CARD_BASE = HEADER_DONE + 200;
-const CARD_GAP  = 120;
+const HEADER_H1  = 300;
+const HEADER_SUB = 650;
+const HEADER_DONE = HEADER_SUB + 22 * 22;
+
+const SECTION_GAP = 280;
 
 export default function Products() {
   return (
     <main className="min-h-screen bg-[#0a0a0a] px-5 sm:px-8 pt-28 pb-24">
-      <div className="max-w-6xl mx-auto">
+      <div className="max-w-4xl mx-auto">
 
         {/* Header */}
-        <div className="mb-14 max-w-2xl">
-          <motion.p {...appear(HEADER_LABEL)} className="text-xs font-mono tracking-[0.2em] uppercase mb-3" style={{ color: 'var(--accent)' }}>
-            <StreamText speed={45} startDelay={HEADER_LABEL}>01 — Your AI Team</StreamText>
+        <div className="mb-16 max-w-2xl">
+          <motion.p {...appear(0)} className="text-xs font-mono tracking-[0.2em] uppercase mb-3" style={{ color: 'var(--accent)' }}>
+            <StreamText speed={45}>What we build</StreamText>
           </motion.p>
-          <motion.h1 {...appear(HEADER_H1)} className="text-3xl sm:text-4xl md:text-5xl font-bold text-white leading-tight">
-            <StreamText speed={50} startDelay={HEADER_H1}>Hire by role, not by software.</StreamText>
+          <motion.h1 {...appear(HEADER_H1)} className="text-3xl sm:text-4xl md:text-5xl font-bold text-white leading-tight mb-4">
+            <StreamText speed={48} startDelay={HEADER_H1}>An AI you just talk to.</StreamText>
           </motion.h1>
-          <motion.p {...appear(HEADER_SUB)} className="mt-4 text-gray-500 leading-relaxed">
+          <motion.p {...appear(HEADER_SUB)} className="text-gray-500 leading-relaxed">
             <StreamText speed={22} startDelay={HEADER_SUB}>
-              Each agent handles a specific business function — customer calls, invoicing, lead follow-up, whatever you&apos;re falling behind on. You pick the role. We build and run the agent.
+              On standby around the clock. Reachable through your messaging app. You tell it what to do — once, or on a schedule — and it handles it. One agent or several, it&apos;s up to you.
             </StreamText>
           </motion.p>
         </div>
 
-        {/* Role cards */}
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4">
-          {ROLES.map(({ icon: Icon, title, tagline, items }, idx) => {
-            const cardAt = CARD_BASE + idx * CARD_GAP;
-            const itemBase = cardAt + 300;
-            return (
-              <motion.div
-                key={title}
-                initial={{ opacity: 0, y: 10 }}
-                animate={{ opacity: 1, y: 0 }}
-                transition={{ delay: cardAt / 1000, duration: 0.4, ease: 'easeOut' }}
-                className="p-6 sm:p-7 rounded-2xl border border-white/8 bg-[#111] hover:border-white/15 transition-colors group cursor-default flex flex-col"
-              >
-                <div className="w-10 h-10 rounded-xl flex items-center justify-center mb-5 group-hover:scale-110 transition-transform flex-shrink-0"
-                  style={{ backgroundColor: 'var(--accent)' }}>
-                  <Icon className="text-[#0a0a0a]" size={18} />
+        {/* Example sections */}
+        {EXAMPLES.map(({ icon: Icon, label, desc, prompts }, sIdx) => {
+          const sectionAt = HEADER_DONE + 300 + sIdx * SECTION_GAP;
+          return (
+            <motion.div
+              key={label}
+              {...appear(sectionAt)}
+              className="mb-12"
+            >
+              {/* Section label */}
+              <div className="flex items-center gap-2.5 mb-5">
+                <div className="w-7 h-7 rounded-lg flex items-center justify-center flex-shrink-0"
+                  style={{ backgroundColor: 'rgba(0,255,136,0.12)' }}>
+                  <Icon size={14} style={{ color: 'var(--accent)' }} />
                 </div>
+                <div>
+                  <span className="text-sm font-semibold text-white">{label}</span>
+                  <span className="text-gray-600 text-sm"> — {desc}</span>
+                </div>
+              </div>
 
-                <h2 className="text-lg font-bold text-white mb-1 font-mono">
-                  <StreamText speed={50} startDelay={cardAt + 60}>{title}</StreamText>
-                </h2>
-                <p className="text-sm text-gray-500 leading-relaxed mb-5">
-                  <StreamText speed={24} startDelay={cardAt + 180}>{tagline}</StreamText>
-                </p>
+              {/* Prompt cards */}
+              <div className="space-y-3 pl-0">
+                {prompts.map(({ user, agent }, pIdx) => (
+                  <motion.div
+                    key={pIdx}
+                    initial={{ opacity: 0, y: 6 }}
+                    animate={{ opacity: 1, y: 0 }}
+                    transition={{ delay: (sectionAt + 100 + pIdx * 180) / 1000, duration: 0.35, ease: 'easeOut' }}
+                    className="rounded-xl border border-white/8 overflow-hidden"
+                    style={{ background: '#0f0f0f' }}
+                  >
+                    {/* User message */}
+                    <div className="px-5 py-4 flex items-start gap-3 border-b border-white/6">
+                      <div className="w-6 h-6 rounded-full bg-white/10 flex-shrink-0 flex items-center justify-center mt-0.5">
+                        <span className="text-[10px] text-gray-400 font-mono">You</span>
+                      </div>
+                      <p className="text-sm text-gray-300 leading-relaxed">&ldquo;{user}&rdquo;</p>
+                    </div>
+                    {/* Agent reply */}
+                    <div className="px-5 py-4 flex items-start gap-3" style={{ background: 'rgba(0,255,136,0.03)' }}>
+                      <div className="w-6 h-6 rounded-full flex-shrink-0 flex items-center justify-center mt-0.5"
+                        style={{ backgroundColor: 'rgba(0,255,136,0.15)' }}>
+                        <span className="text-[10px] font-mono" style={{ color: 'var(--accent)' }}>AI</span>
+                      </div>
+                      <p className="text-sm text-gray-400 leading-relaxed">{agent}</p>
+                    </div>
+                  </motion.div>
+                ))}
+              </div>
+            </motion.div>
+          );
+        })}
 
-                <ul className="space-y-2.5 mt-auto">
-                  {items.map((item, i) => (
-                    <li key={item} className="flex items-start gap-2 text-xs text-gray-400 leading-snug">
-                      <FiCheck size={11} style={{ color: 'var(--accent)', flexShrink: 0, marginTop: 2 }} />
-                      <StreamText speed={30} startDelay={itemBase + i * 220}>{item}</StreamText>
-                    </li>
-                  ))}
-                </ul>
-              </motion.div>
-            );
-          })}
-        </div>
+        {/* Bottom context */}
+        <motion.div {...appear(HEADER_DONE + 300 + EXAMPLES.length * SECTION_GAP + 200)} className="mb-10">
+          <p className="text-gray-600 text-sm leading-relaxed max-w-xl">
+            These are examples — not a fixed menu. Your agent does what you tell it, in the order you tell it, on whatever schedule makes sense for your business. Start with one thing. Add more as you need it.
+          </p>
+        </motion.div>
 
         {/* CTA */}
         <motion.div
-          {...appear(CARD_BASE + ROLES.length * CARD_GAP + 400)}
-          className="mt-12 rounded-2xl border border-white/8 p-8 sm:p-10 flex flex-col sm:flex-row items-start sm:items-center justify-between gap-6"
+          {...appear(HEADER_DONE + 300 + EXAMPLES.length * SECTION_GAP + 400)}
+          className="rounded-2xl border border-white/8 p-8 flex flex-col sm:flex-row items-start sm:items-center justify-between gap-6"
           style={{ background: '#0d0d0d' }}
         >
           <div>
-            <p className="text-white font-bold text-xl mb-1">Ready to staff up?</p>
-            <p className="text-gray-500 text-sm max-w-md">
-              Tell us which role would make the biggest difference. We&apos;ll scope it, build it, and keep it running.
-            </p>
+            <p className="text-white font-bold text-xl mb-1">Want to see what it could do for you?</p>
+            <p className="text-gray-500 text-sm">Tell us what you're dealing with. We'll figure out whether an agent makes sense.</p>
           </div>
           <Link
             href="/contact"
             className="inline-flex items-center gap-2 px-6 py-3 rounded-lg font-semibold text-[#0a0a0a] whitespace-nowrap transition-all hover:scale-105 active:scale-95 flex-shrink-0"
             style={{ backgroundColor: 'var(--accent)', boxShadow: '0 0 24px rgba(0,255,136,0.2)' }}
           >
-            Build your team <FiArrowRight />
+            Let&apos;s talk <FiArrowRight />
           </Link>
         </motion.div>
 
