@@ -22,20 +22,20 @@ const PAIN_POINTS = [
 
 const EXAMPLES = [
   {
-    user: "Hey, if someone calls after hours and asks about pricing, handle it and take down their info.",
-    agent: "Got it. I'll pick up after-hours calls, walk them through pricing, and send you a summary with their contact info.",
+    user: "Answer my business line after hours. If someone calls about pricing or wants to book, handle it. I don't want to miss jobs.",
+    agent: "Your line is covered. I'll answer calls 24/7, walk people through pricing, book appointments, and send you a summary after each call. Works with your existing number.",
+  },
+  {
+    user: "I've got customers who speak Spanish. Make sure they get the same experience as anyone else.",
+    agent: "Handled. I'll detect the language and respond in kind — same process, same quality, no extra setup needed.",
   },
   {
     user: "Chase the three unpaid invoices from March. Give them a week, then follow up again.",
-    agent: "On it. First messages going out now. I'll flag you if anyone pushes back or goes quiet.",
-  },
-  {
-    user: "When a Google review comes in, draft me a response to approve before it goes out.",
-    agent: "Watching for new reviews. I'll have a draft in your inbox before you even see the notification.",
+    agent: "On it. First messages going out now through whatever channel makes sense — email, SMS, whatever you've got set up. I'll flag you if anyone pushes back.",
   },
   {
     user: "Go through last month's emails and pull out anything that looks like a lead we dropped.",
-    agent: "Found 6 conversations that went cold. Drafting follow-ups — want to review before I send?",
+    agent: "Found 6 conversations that went cold. Drafting follow-ups for you to review — or I can just send them if you'd rather not look.",
   },
 ];
 
@@ -91,7 +91,7 @@ export default function Products() {
             An AI employee handles this.
           </p>
           <p className="text-gray-500 text-sm leading-relaxed max-w-xl">
-            You message it. It handles it. On standby 24/7, reachable through whatever app you already use. You&apos;re not managing software — you&apos;re talking to someone who works for you.
+            On standby around the clock. Picks up your phone calls, handles your messages, works across whatever channels your business already uses. You&apos;re not managing software — you&apos;re talking to someone who works for you.
           </p>
         </motion.div>
 
