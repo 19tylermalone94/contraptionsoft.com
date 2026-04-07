@@ -30,10 +30,6 @@ const EXAMPLES = [
     agent: "On it. First messages going out now. I'll flag you if anyone pushes back or goes quiet.",
   },
   {
-    user: "Every Friday at 4pm, check in with the crew and ask where everything stands.",
-    agent: "Scheduled. First check-in this Friday at 4pm. I'll roll up the responses and send them to you.",
-  },
-  {
     user: "When a Google review comes in, draft me a response to approve before it goes out.",
     agent: "Watching for new reviews. I'll have a draft in your inbox before you even see the notification.",
   },
@@ -57,9 +53,6 @@ export default function Products() {
 
         {/* Header */}
         <div className="mb-16">
-          <motion.p {...appear(0)} className="text-xs font-mono tracking-[0.2em] uppercase mb-4" style={{ color: 'var(--accent)' }}>
-            <StreamText speed={45}>What we build</StreamText>
-          </motion.p>
           <motion.h1 {...appear(HEADER_H1)} className="text-3xl sm:text-4xl md:text-[52px] font-bold text-white leading-[1.1] tracking-tight mb-6">
             <StreamText speed={52} startDelay={HEADER_H1}>
               Your business is leaking.
@@ -98,7 +91,7 @@ export default function Products() {
             An AI employee handles this.
           </p>
           <p className="text-gray-500 text-sm leading-relaxed max-w-xl">
-            On standby around the clock. Reachable through your messaging app. You tell it what to do — once, on a schedule, or when something happens — and it handles it. You don&apos;t manage software. You just talk to it.
+            You message it. It handles it. On standby 24/7, reachable through whatever app you already use. You&apos;re not managing software — you&apos;re talking to someone who works for you.
           </p>
         </motion.div>
 
@@ -128,14 +121,6 @@ export default function Products() {
           ))}
         </div>
 
-        {/* Flexibility note */}
-        <motion.p
-          {...appear(EXAMPLES_START + EXAMPLES.length * EXAMPLE_GAP + 100)}
-          className="text-gray-600 text-sm leading-relaxed mb-12 max-w-lg"
-        >
-          These are examples. Your agent does what your business actually needs — one thing or ten, on demand or on a schedule. Start small. Add more when it makes sense.
-        </motion.p>
-
         {/* CTA */}
         <motion.div
           {...appear(EXAMPLES_START + EXAMPLES.length * EXAMPLE_GAP + 300)}
@@ -144,7 +129,8 @@ export default function Products() {
         >
           <div>
             <p className="text-white font-bold text-xl mb-1">Tell us what&apos;s slipping.</p>
-            <p className="text-gray-500 text-sm">We&apos;ll figure out whether an agent makes sense and what it would actually do for you.</p>
+            <p className="text-gray-500 text-sm mb-3">We&apos;ll figure out whether an agent makes sense and what it would actually do for you.</p>
+            <p className="text-gray-700 text-xs font-mono">Veteran-owned. Fort Collins, CO. Real people, not a platform.</p>
           </div>
           <Link
             href="/contact"
