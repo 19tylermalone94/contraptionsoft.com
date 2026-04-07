@@ -21,8 +21,8 @@ const EXAMPLES = [
     desc: 'Just ask and it does it.',
     prompts: [
       { user: 'Hey, update the products page to include the new HVAC package we added last week.', agent: 'Done — product page updated and deployed.' },
-      { user: 'Pull all the invoices from March and tell me who's overdue.', agent: 'Found 4 overdue invoices totaling $3,840. Want me to send follow-ups?' },
-      { user: 'Summarize the last 30 emails from clients.', agent: 'Here's a rundown — 3 need a response today, 1 looks like a new lead.' },
+      { user: "Pull all the invoices from March and tell me who's overdue.", agent: 'Found 4 overdue invoices totaling $3,840. Want me to send follow-ups?' },
+      { user: 'Summarize the last 30 emails from clients.', agent: "Here's a rundown — 3 need a response today, 1 looks like a new lead." },
     ],
   },
   {
@@ -30,19 +30,19 @@ const EXAMPLES = [
     label: 'Scheduled',
     desc: 'Set it once and it runs on its own.',
     prompts: [
-      { user: 'At 5pm every Friday, message the crew and ask where things stand for the week.', agent: 'Got it — I'll check in with everyone at 5pm Fridays.' },
-      { user: 'Every morning, check my inbox and flag anything urgent.', agent: 'Running daily at 8am. You'll hear from me if something needs attention.' },
+      { user: 'At 5pm every Friday, message the crew and ask where things stand for the week.', agent: "Got it — I'll check in with everyone at 5pm Fridays." },
+      { user: 'Every morning, check my inbox and flag anything urgent.', agent: "Running daily at 8am. You'll hear from me if something needs attention." },
       { user: 'On the 1st of each month, pull a revenue summary from Stripe and drop it in Slack.', agent: 'Scheduled. First report goes out May 1st.' },
     ],
   },
   {
     icon: FiEye,
     label: 'Always watching',
-    desc: 'Monitors things so you don't have to.',
+    desc: "Monitors things so you don't have to.",
     prompts: [
-      { user: 'If the site goes down, text me immediately.', agent: 'Watching it. You'll get a text within a minute of any downtime.' },
-      { user: 'When a new Google Review comes in, draft a response for me to approve.', agent: 'On it — I'll have a draft ready before you even see the notification.' },
-      { user: 'Keep an eye on the competitor pricing page and let me know if anything changes.', agent: 'I'll check weekly and flag any updates.' },
+      { user: 'If the site goes down, text me immediately.', agent: "Watching it. You'll get a text within a minute of any downtime." },
+      { user: 'When a new Google Review comes in, draft a response for me to approve.', agent: "On it — I'll have a draft ready before you even see the notification." },
+      { user: 'Keep an eye on the competitor pricing page and let me know if anything changes.', agent: "I'll check weekly and flag any updates." },
     ],
   },
 ];
