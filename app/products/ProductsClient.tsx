@@ -3,7 +3,6 @@
 import Link from 'next/link';
 import { motion } from 'framer-motion';
 import { FiArrowRight } from 'react-icons/fi';
-import StreamText from '../components/StreamText';
 
 function appear(delayMs: number) {
   return {
@@ -13,38 +12,24 @@ function appear(delayMs: number) {
   };
 }
 
-const PAIN_POINTS = [
-  "The call that came in at 5:45pm. Nobody answered. They went with somebody else.",
-  "The invoice you sent three weeks ago. Still unpaid. You keep meaning to follow up.",
-  "The quote you put together, sent it off, and never heard back. You never followed up either.",
-  "Monday morning. You spend two hours on things that aren't the job.",
-];
-
 const EXAMPLES = [
   {
-    user: "Hey, if someone calls after hours and asks about pricing, handle it and take down their info.",
-    agent: "Got it. I'll pick up after-hours calls, walk them through pricing, and send you a summary with their contact info.",
+    user: "Answer my business line after hours. If someone calls about pricing or wants to book, handle it.",
+    agent: "Your line is covered. I'll answer calls 24/7, walk people through pricing, book appointments, and send you a summary after each one. Works with your existing number.",
   },
   {
-    user: "Chase the three unpaid invoices from March. Give them a week, then follow up again.",
-    agent: "On it. First messages going out now. I'll flag you if anyone pushes back or goes quiet.",
+    user: "I've got Spanish-speaking customers. Make sure they get the same experience.",
+    agent: "On it. I'll detect the language and respond in kind — same quality, no extra setup.",
   },
   {
-    user: "When a Google review comes in, draft me a response to approve before it goes out.",
-    agent: "Watching for new reviews. I'll have a draft in your inbox before you even see the notification.",
+    user: "When a Google review comes in, draft a response for me to approve before it goes out.",
+    agent: "Watching for new reviews. Draft will be in your inbox before you even see the notification.",
   },
   {
-    user: "Go through last month's emails and pull out anything that looks like a lead we dropped.",
-    agent: "Found 6 conversations that went cold. Drafting follow-ups — want to review before I send?",
+    user: "Go through last month's emails and pull out any leads we didn't follow up on.",
+    agent: "Found 6 conversations that went quiet. Drafting follow-ups now — want to review first or should I just send them?",
   },
 ];
-
-const HEADER_H1   = 300;
-const HEADER_DONE = 900;
-const PAIN_BASE   = HEADER_DONE + 200;
-const PAIN_GAP    = 180;
-const EXAMPLES_START = PAIN_BASE + PAIN_POINTS.length * PAIN_GAP + 500;
-const EXAMPLE_GAP = 200;
 
 export default function Products() {
   return (
@@ -52,55 +37,25 @@ export default function Products() {
       <div className="max-w-3xl mx-auto">
 
         {/* Header */}
-        <div className="mb-16">
-          <motion.h1 {...appear(HEADER_H1)} className="text-3xl sm:text-4xl md:text-[52px] font-bold text-white leading-[1.1] tracking-tight mb-6">
-            <StreamText speed={52} startDelay={HEADER_H1}>
-              Your business is leaking.
-            </StreamText>
+        <div className="mb-14">
+          <motion.h1 {...appear(200)} className="text-3xl sm:text-4xl md:text-[52px] font-bold text-white leading-[1.1] tracking-tight mb-5">
+            AI that works for your business.
           </motion.h1>
-          <motion.p {...appear(600)} className="text-gray-500 leading-relaxed max-w-xl">
-            <StreamText speed={22} startDelay={600}>
-              Missed calls. Unpaid invoices. Follow-ups that never happened. Not because you don&apos;t care — because there aren&apos;t enough hours. We build AI that plugs the gaps.
-            </StreamText>
+          <motion.p {...appear(500)} className="text-gray-500 leading-relaxed max-w-xl">
+            We build AI agents that handle real business tasks — answering calls, following up on leads, monitoring your inbox, responding to customers. On standby around the clock, reachable through your phone or whatever messaging app you already use.
           </motion.p>
         </div>
 
-        {/* Pain points */}
-        <div className="mb-16">
-          <motion.p {...appear(PAIN_BASE - 200)} className="text-xs font-mono text-gray-600 uppercase tracking-widest mb-5">
-            Sound familiar?
-          </motion.p>
-          <ul className="space-y-3">
-            {PAIN_POINTS.map((point, i) => (
-              <motion.li
-                key={i}
-                {...appear(PAIN_BASE + i * PAIN_GAP)}
-                className="flex items-start gap-4 py-4 px-5 rounded-xl border border-white/6"
-                style={{ background: '#0d0d0d' }}
-              >
-                <span className="text-gray-700 font-mono text-sm flex-shrink-0 mt-0.5">{String(i + 1).padStart(2, '0')}</span>
-                <p className="text-gray-400 text-sm leading-relaxed">{point}</p>
-              </motion.li>
-            ))}
-          </ul>
-        </div>
+        {/* Examples */}
+        <motion.p {...appear(750)} className="text-xs font-mono text-gray-600 uppercase tracking-widest mb-5">
+          What it looks like
+        </motion.p>
 
-        {/* Bridge */}
-        <motion.div {...appear(EXAMPLES_START - 300)} className="mb-12">
-          <p className="text-white text-xl font-semibold leading-snug mb-3">
-            An AI employee handles this.
-          </p>
-          <p className="text-gray-500 text-sm leading-relaxed max-w-xl">
-            You message it. It handles it. On standby 24/7, reachable through whatever app you already use. You&apos;re not managing software — you&apos;re talking to someone who works for you.
-          </p>
-        </motion.div>
-
-        {/* Example conversations */}
-        <div className="mb-12 space-y-3">
+        <div className="space-y-3 mb-12">
           {EXAMPLES.map(({ user, agent }, i) => (
             <motion.div
               key={i}
-              {...appear(EXAMPLES_START + i * EXAMPLE_GAP)}
+              {...appear(850 + i * 180)}
               className="rounded-xl border border-white/8 overflow-hidden"
               style={{ background: '#0f0f0f' }}
             >
@@ -123,13 +78,13 @@ export default function Products() {
 
         {/* CTA */}
         <motion.div
-          {...appear(EXAMPLES_START + EXAMPLES.length * EXAMPLE_GAP + 300)}
+          {...appear(850 + EXAMPLES.length * 180 + 200)}
           className="rounded-2xl border border-white/8 p-8 sm:p-10 flex flex-col sm:flex-row items-start sm:items-center justify-between gap-6"
           style={{ background: '#0d0d0d' }}
         >
           <div>
-            <p className="text-white font-bold text-xl mb-1">Tell us what&apos;s slipping.</p>
-            <p className="text-gray-500 text-sm mb-3">We&apos;ll figure out whether an agent makes sense and what it would actually do for you.</p>
+            <p className="text-white font-bold text-xl mb-1">Want one on your team?</p>
+            <p className="text-gray-500 text-sm mb-3">Tell us what you want it to do. We&apos;ll scope it, build it, and keep it running.</p>
             <p className="text-gray-700 text-xs font-mono">Veteran-owned. Fort Collins, CO. Real people, not a platform.</p>
           </div>
           <Link
